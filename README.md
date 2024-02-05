@@ -1,1 +1,1 @@
-# nizimaLIVESampleScript
+# nizima LIVE Sample Script
