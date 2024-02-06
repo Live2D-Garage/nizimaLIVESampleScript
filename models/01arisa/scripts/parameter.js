@@ -1,4 +1,4 @@
-console.log("paremter")
+console.log("parameter")
 
 
 function paint(model, painter) {
