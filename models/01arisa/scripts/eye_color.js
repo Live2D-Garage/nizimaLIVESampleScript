@@ -3,9 +3,10 @@ let mouseX = 0
 let mouseY = 0
 
 
-function checkParts(model) {
+let parts = []
+
+function start() {
     parts = []
-    currentModel = model
     for (let part of model.parts) {
         if (part.name.includes("瞳") ||
             part.name.includes("目玉")) {
@@ -15,23 +16,16 @@ function checkParts(model) {
         part.multiplyColor = Live.rgba(0.5, 0.5, 0.5, 1)
         console.log(part.name, part.id)
     }
-}
-
-let currentModel
-let parts = []
-
-function start(model) {
-    checkParts(model)
 
     console.log(parts)
 }
 
-function onMouseMove(model, x, y) {
+function onMouseMove(x, y) {
     mouseX = x
     mouseY = y
 }
 
-function paint(model, painter) {
+function paint(painter) {
     painter.clear()
 
     painter.pen = "red"
@@ -64,6 +58,6 @@ function paint(model, painter) {
     }
 }
 
-function onDisable(model) {
+function onDisable() {
     model.multiplyColor = Live.rgba(1, 1, 1, 1)
 }

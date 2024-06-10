@@ -1,6 +1,6 @@
 console.log("expression key")
 
-function onKeyDown(model, key) {
+function onKeyDown(key) {
     let num = parseInt(key)
     if (isNaN(num)) return
     num--
@@ -8,7 +8,7 @@ function onKeyDown(model, key) {
     model.expressions[num].start()
 }
 
-function onKeyUp(model, key) {
+function onKeyUp(key) {
     let num = parseInt(key)
     if (isNaN(num)) return
     num--

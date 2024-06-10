@@ -1,12 +1,12 @@
 console.log("event log", new Date().toString())
 
-function onEnable(app) {
+function onEnable() {
     console.log("onEnable!")
 }
 
-function start(app) {
+function start() {
     console.log("start!")
-    app.showMessage("Script Start")
+    live.showMessage("Script Start")
 }
 
 let updateCount = 0
@@ -15,18 +15,18 @@ let mouseX = NaN
 let mouseY = NaN
 let lastKey = ""
 
-function update(app) {
+function update() {
     if (updateCount == 0) {
         console.log("update! (first)")
     }
     updateCount++
 }
 
-function onDisable(app) {
+function onDisable() {
     console.log("onDisable!")
 }
 
-function paint(app, painter) {
+function paint(painter) {
     if (paintCount == 0) {
         console.log("paint! (first)")
     }
@@ -52,15 +52,15 @@ function paint(app, painter) {
     painter.drawCircle(mouseX, mouseY, 10)
 }
 
-function onMouseDown(app, x, y, button) {
+function onMouseDown(x, y, button) {
     console.log("onMouseDown!", x.toFixed(2), y.toFixed(2), button)
 }
 
-function onMouseUp(app, x, y, button) {
+function onMouseUp(x, y, button) {
     console.log("onMouseUp!", x.toFixed(2), y.toFixed(2), button)
 }
 
-function onMouseMove(app, x, y) {
+function onMouseMove(x, y) {
     if (isNaN(mouseX)) {
         console.log("onMouseMove! (first)", x.toFixed(2), y.toFixed(2))
     }
@@ -69,12 +69,12 @@ function onMouseMove(app, x, y) {
     mouseY = y
 }
 
-function onKeyDown(app, key) {
+function onKeyDown(key) {
     console.log("onKeyDown!", key)
-    app.showMessage("Key:" + key)
+    live.showMessage("Key:" + key)
 }
 
-function onKeyUp(app, key) {
+function onKeyUp(key) {
     console.log("onKeyUp!", key)
     lastKey = key
 }

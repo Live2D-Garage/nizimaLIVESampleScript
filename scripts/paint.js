@@ -26,7 +26,7 @@ class Button {
         painter.brush = "gray"
         painter.pixelSize = 20
         painter.drawRect(this.x, this.y, this.w, this.h)
-        painter.drawText(this.x + 10, this.y + 20, this.text)
+        painter.drawText(this.x + 10, this.y, this.text)
     }
 }
 
@@ -56,11 +56,11 @@ let blueButton = new CircleButton(220, 20, 10, "blue")
 let blackButton = new CircleButton(250, 20, 10, "black")
 let whiteButton = new CircleButton(280, 20, 10, "white")
 
-function start(app) {
+function start() {
     clear = true
 }
 
-function onMouseDown(app, x, y, btn) {
+function onMouseDown(x, y, btn) {
     console.log("mousePress", x, y, btn)
     drag = true
     mouseX = x
@@ -81,12 +81,12 @@ function onMouseDown(app, x, y, btn) {
     }
 }
 
-function onMouseMove(app, x, y) {
+function onMouseMove(x, y) {
     mouseX = x
     mouseY = y
 }
 
-function onMouseUp(app, x, y, btn) {
+function onMouseUp(x, y, btn) {
     console.log("mouseRelease", x, y, btn)
     drag = false
     mouseX = x
@@ -95,7 +95,7 @@ function onMouseUp(app, x, y, btn) {
     lastMouseY = 0
 }
 
-function paint(app, painter) {
+function paint(painter) {
     if (clear) {
         painter.clear()
         clear = false
@@ -108,7 +108,7 @@ function paint(app, painter) {
 
         painter.penWidth = 1
         painter.pen = "black"
-        painter.drawText(80, 25, "Color :")
+        painter.drawText(80, 5, "Color :")
         painter.drawText(80, 50, "1-9 key  : Size")
         return
     }
@@ -127,15 +127,15 @@ function paint(app, painter) {
     }
 }
 
-function onKeyDown(app, key) {
+function onKeyDown(key) {
     if (key == "0") {
         console.log("Clear!", key)
-        app.showMessage("Clear!")
+        live.showMessage("Clear!")
         clear = true
     } else {
         if (!isNaN(parseInt(key))) {
             console.log("Size:", key)
-            app.showMessage("Size:" + key)
+            live.showMessage("Size:" + key)
             userSize = key
         }
     }

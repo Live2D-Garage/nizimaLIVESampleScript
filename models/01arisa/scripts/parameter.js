@@ -1,7 +1,7 @@
 console.log("parameter")
 
 
-function paint(model, painter) {
+function paint(painter) {
     painter.clear()
     let dy = 15
 

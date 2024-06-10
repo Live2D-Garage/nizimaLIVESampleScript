@@ -8,7 +8,7 @@ function random(min, max) {
     return Math.random() * (max - min) + min
 }
 
-function update(model, params) {
+function update(params) {
     if (params.EyeOpenLeft > 0.8 && params.EyeOpenRight > 0.8) {
         lookX = params.EyeLookX
         lookY = params.EyeLookY
